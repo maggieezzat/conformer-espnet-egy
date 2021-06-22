@@ -14,7 +14,8 @@ lm_config=conf/tuning/train_lm_transformer2.yaml
 inference_config=conf/decode_asr.yaml
 
 SECONDS=0
-n=4
+nodes=4
+gpus=4
       
 ./asr.sh \
     --lang en \
@@ -28,8 +29,8 @@ n=4
     --test_sets "${test_sets}" \
     --lm_train_text "data/${train_set}/text data/local/other_text/text" \
     --bpe_train_text "data/${train_set}/text" "$@" \
-    --ngpu 16 \
-    --num_nodes $n \
+    --ngpu $gpus \
+    --num_nodes $nodes \
     --stage 6 \
     --stop_stage 6 
 
