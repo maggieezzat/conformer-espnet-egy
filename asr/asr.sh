@@ -406,6 +406,7 @@ if ! "${skip_data_prep}"; then
         for x in ${train_set} ${valid_set} ${test_sets}; do
             spk2utt=data/${x}/spk2utt
             utt2spk=data/${x}/utt2spk
+            sort -o $utt2spk $utt2spk
             utils/utt2spk_to_spk2utt.pl <$utt2spk >$spk2utt || exit 1
             utils/validate_data_dir.sh --no-feats data/${x} || exit 1
         done
