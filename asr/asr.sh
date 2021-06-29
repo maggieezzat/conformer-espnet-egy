@@ -402,7 +402,7 @@ if ! "${skip_data_prep}"; then
         # [Task dependent] Need to create data.sh for new corpus
         ######################################################
         #local/data.sh ${local_data_opts}
-        local/data.py 
+        ${python} local/data.py 
         for x in ${train_set} ${valid_set} ${test_set}; do
             spk2utt=data/${x}/spk2utt
             utt2spk=data/${x}/utt2spk
