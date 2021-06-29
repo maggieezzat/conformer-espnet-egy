@@ -403,7 +403,7 @@ if ! "${skip_data_prep}"; then
         ######################################################
         #local/data.sh ${local_data_opts}
         ${python} local/data.py 
-        for x in ${train_set} ${valid_set} ${test_set}; do
+        for x in ${train_set} ${valid_set} ${test_sets}; do
             spk2utt=data/${x}/spk2utt
             utt2spk=data/${x}/utt2spk
             utils/utt2spk_to_spk2utt.pl <$utt2spk >$spk2utt || exit 1
