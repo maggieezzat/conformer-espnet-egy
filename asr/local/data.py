@@ -1,4 +1,5 @@
 import os
+from posix import listdir
 import random
 
 valid_percent = 0.01
@@ -32,10 +33,14 @@ with open(trans_path_coll, 'r') as f:
 random.seed(575)
 random.shuffle(coll)
 dev_waves = coll[:5000]
+dev_waves = list(set(dev_waves))
 coll = coll[5000:]
 test_waves = coll[:5000]
+test_waves = list(set(test_waves))
 coll = coll[5000:]
 train_waves = coll + msa
+train_waves = list(set(train_waves))
+
 
 train_path = 'data/train'
 
