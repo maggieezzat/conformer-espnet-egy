@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 #SBATCH --job-name="conformer"
-#SBATCH --nodes=4
+#SBATCH --nodes=2
 #SBATCH --cpus-per-task=10
 #SBATCH --ntasks-per-node=1
 #SBATCH --time="24:00:00"
