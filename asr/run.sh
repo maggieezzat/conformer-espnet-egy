@@ -14,25 +14,36 @@ lm_config=conf/tuning/train_lm_transformer2.yaml
 inference_config=conf/decode_asr.yaml
 
 SECONDS=0
-nodes=4
+nodes=2
 gpus=4
       
 ./asr.sh \
-    --lang en \
+    --lang ar \
     --nbpe 5000 \
-    --max_wav_duration 30 \
     --asr_config "${asr_config}" \
-    --lm_config "${lm_config}" \
     --inference_config "${inference_config}" \
     --train_set "${train_set}" \
     --valid_set "${valid_set}" \
     --test_sets "${test_sets}" \
-    --lm_train_text "data/${train_set}/text data/local/other_text/text" \
-    --bpe_train_text "data/${train_set}/text" "$@" \
     --ngpu $gpus \
     --num_nodes $nodes \
-    --stage 6 \
-    --stop_stage 6 
+    --use_lm false
+
+#./asr.sh \
+#    --lang en \
+#    --nbpe 5000 \
+#    --max_wav_duration 30 \
+#    --asr_config "${asr_config}" \
+#    --lm_config "${lm_config}" \
+#    --inference_config "${inference_config}" \
+#    --train_set "${train_set}" \
+#    --valid_set "${valid_set}" \
+#    --test_sets "${test_sets}" \
+#    --lm_train_text "data/${train_set}/text data/local/other_text/text" \
+#    --bpe_train_text "data/${train_set}/text" "$@" \
+#    --ngpu $gpus \
+#    --num_nodes $nodes \
+#    --use_lm false
 
 duration=$SECONDS
 echo "$(($duration / 60)) minutes and $(($duration % 60)) seconds elapsed on $n node(s)"

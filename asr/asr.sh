@@ -46,7 +46,7 @@ speed_perturb_factors=  # perturbation factors, e.g. "0.9 1.0 1.1" (separated by
 
 # Feature extraction related
 feats_type=raw       # Feature type (raw or fbank_pitch).
-audio_format=flac    # Audio format: wav, flac, wav.ark, flac.ark  (only in feats_type=raw).
+audio_format=wav    # Audio format: wav, flac, wav.ark, flac.ark  (only in feats_type=raw).
 fs=16k               # Sampling rate.
 min_wav_duration=0.1 # Minimum duration in second.
 max_wav_duration=20  # Maximum duration in second.
@@ -63,7 +63,7 @@ bpe_nlsyms=         # non-linguistic symbols list, separated by a comma, for BPE
 bpe_char_cover=1.0  # character coverage when modeling BPE
 
 # Language model related
-use_lm=true       # Use language model for ASR decoding.
+use_lm=false      # Use language model for ASR decoding.
 lm_tag=           # Suffix to the result dir for language model training.
 lm_exp=           # Specify the direcotry path for LM experiment.
                   # If this option is specified, lm_tag is ignored.
@@ -400,7 +400,21 @@ if ! "${skip_data_prep}"; then
     if [ ${stage} -le 1 ] && [ ${stop_stage} -ge 1 ]; then
         log "Stage 1: Data preparation for data/${train_set}, data/${valid_set}, etc."
         # [Task dependent] Need to create data.sh for new corpus
-        local/data.sh ${local_data_opts}
+        ######################################################
+        #local/data.sh ${local_data_opts}
+        ${python} local/data.py 
+        for x in ${train_set} ${valid_set} ${test_sets}; do
+            spk2utt=data/${x}/spk2utt
+            utt2spk=data/${x}/utt2spk
+            text=data/${x}/text
+            wav_scp=data/${x}/wav.scp
+            sort -o $utt2spk $utt2spk
+            sort -o $text $text
+            sort -o $wav_scp $wav_scp
+            utils/utt2spk_to_spk2utt.pl <$utt2spk >$spk2utt || exit 1
+            utils/validate_data_dir.sh --no-feats data/${x} || exit 1
+        done
+        ######################################################
     fi
 
     if [ ${stage} -le 2 ] && [ ${stop_stage} -ge 2 ]; then
