@@ -4,6 +4,7 @@ batch_bins: 100000000
 accum_grad: 1
 max_epoch: 35
 patience: none
+###### weight initialization
 init: xavier_uniform
 best_model_criterion:
 -   - valid
@@ -20,6 +21,7 @@ encoder_conf:
     dropout_rate: 0.1
     positional_dropout_rate: 0.1
     attention_dropout_rate: 0.1
+    ###### subsampling of 6
     input_layer: conv2d6
     normalize_before: true
     macaron_style: true
@@ -46,6 +48,7 @@ model_conf:
 
 optim: adam
 optim_conf:
+    ###### lr=0.001
     lr: 0.001
 scheduler: warmuplr
 scheduler_conf:
