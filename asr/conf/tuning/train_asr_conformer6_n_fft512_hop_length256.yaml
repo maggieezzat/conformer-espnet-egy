@@ -52,7 +52,9 @@ scheduler_conf:
     warmup_steps: 25000
 
 frontend_conf:
+  # n_fft=frame length: The (positive integer) number of samples in an analysis window (or frame).
   n_fft: 512
+  #hop length=The number of samples between successive frames, e.g., the columns of a spectrogram. This is denoted as a positive integer hop_length
   hop_length: 256
 
 specaug: specaug
