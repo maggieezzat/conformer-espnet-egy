@@ -1,7 +1,7 @@
 import os
 import random
 
-trans_coll_dev_10 = '/scratch/mezzat/supervised-audio-data-8k/egyptian-colloquial-arabic-8k/test-data-8k/coll-dev-10/coll-dev-10.trans.txt'
+trans_coll_dev_10 = '/scratch/mezzat/supervised-audio-data-8k/test-data-8k/coll-dev-10/coll-dev-10.trans.txt'
 
 coll_dev_10 = []
 
