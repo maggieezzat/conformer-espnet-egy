@@ -37,6 +37,7 @@ with open(trans_msa_noise, 'r') as f:
         msa_noise.append((id, path, trans))
 
 msa_path = 'data/msa'
+os.makedirs(msa_path, exist_ok=True)
 
 with open(os.path.join(msa_path, 'wav.scp'), 'w') as wav_scp, open(os.path.join(msa_path, 'text'), 'w') as text_f, open(os.path.join(msa_path, 'utt2spk'), 'w') as utt2spk:
     for wave in msa:
@@ -45,6 +46,7 @@ with open(os.path.join(msa_path, 'wav.scp'), 'w') as wav_scp, open(os.path.join(
         utt2spk.write(msa[0] + ' ' + msa[0] + '\n')
 
 msa_speed_path = 'data/msa_speed'
+os.makedirs(msa_speed_path, exist_ok=True)
 
 with open(os.path.join(msa_speed_path, 'wav.scp'), 'w') as wav_scp, open(os.path.join(msa_speed_path, 'text'), 'w') as text_f, open(os.path.join(msa_speed_path, 'utt2spk'), 'w') as utt2spk:
     for wave in msa_speed:
@@ -54,6 +56,7 @@ with open(os.path.join(msa_speed_path, 'wav.scp'), 'w') as wav_scp, open(os.path
 
 
 msa_noise_path = 'data/msa_noise'
+os.makedirs(msa_noise_path, exist_ok=True)
 
 with open(os.path.join(msa_noise_path, 'wav.scp'), 'w') as wav_scp, open(os.path.join(msa_noise_path, 'text'), 'w') as text_f, open(os.path.join(msa_noise_path, 'utt2spk'), 'w') as utt2spk:
     for wave in msa_noise:
