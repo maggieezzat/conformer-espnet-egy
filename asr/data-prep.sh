@@ -11,5 +11,6 @@ for x in $sets; do
     sort -u -o $text $text
     sort -u -o $wav_scp $wav_scp
     utils/utt2spk_to_spk2utt.pl <$utt2spk >$spk2utt || exit 1
+    utils/fix_data_dir.sh data/$x || exit 1
     utils/validate_data_dir.sh --no-feats data/${x} || exit 1
 done
