@@ -51,7 +51,7 @@ with open(trans_coll_noise, 'r') as f:
         trans = line[1]
         id = path.split("/")[-1]
         id = id[:-4]
-        base_id = id.split("_noise")[0]
+        base_id = id.split("_noisy")[0]
         if base_id in dev_ids:
             dev_waves.append((id, path, trans))
         else:
