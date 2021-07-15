@@ -5,9 +5,9 @@ set -e
 set -u
 set -o pipefail
 
-train_set="train"
-valid_set="dev"
-test_sets="test"
+train_set="colloquial"
+valid_set="coll-dev-new"
+test_sets="coll-dev-10 mgb3-dev"
 
 #train_set="msa msa_noise msa_speed"
 
@@ -16,7 +16,7 @@ lm_config=conf/tuning/train_lm_transformer2.yaml
 inference_config=conf/decode_asr.yaml
 
 SECONDS=0
-nodes=2
+nodes=1
 gpus=4
       
 ./asr.sh \
@@ -30,7 +30,7 @@ gpus=4
     --ngpu $gpus \
     --num_nodes $nodes \
     --feats_type 'fbank_pitch' \
-    --use_lm false
+    --use_lm false --stage 3 --stop_stage 3
 
 #./asr.sh \
 #    --lang en \
