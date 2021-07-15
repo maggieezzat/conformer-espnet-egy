@@ -55,7 +55,7 @@ with open(trans_coll_noise, 'r') as f:
         if base_id in dev_ids:
             dev_waves.append((id, path, trans))
         else:
-            coll_speed.append((id, path, trans))
+            coll_noise.append((id, path, trans))
 
 
 dev_path = 'data/coll-dev-new'
