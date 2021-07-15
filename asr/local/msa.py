@@ -41,18 +41,18 @@ os.makedirs(msa_path, exist_ok=True)
 
 with open(os.path.join(msa_path, 'wav.scp'), 'w') as wav_scp, open(os.path.join(msa_path, 'text'), 'w') as text_f, open(os.path.join(msa_path, 'utt2spk'), 'w') as utt2spk:
     for wave in msa:
-        wav_scp.write(msa[0] + ' ' + msa[1] + '\n')
-        text_f.write(msa[0] + ' ' + msa[2] + '\n')
-        utt2spk.write(msa[0] + ' ' + msa[0] + '\n')
+        wav_scp.write(wave[0] + ' ' + wave[1] + '\n')
+        text_f.write(wave[0] + ' ' + wave[2] + '\n')
+        utt2spk.write(wave[0] + ' ' + wave[0] + '\n')
 
 msa_speed_path = 'data/msa_speed'
 os.makedirs(msa_speed_path, exist_ok=True)
 
 with open(os.path.join(msa_speed_path, 'wav.scp'), 'w') as wav_scp, open(os.path.join(msa_speed_path, 'text'), 'w') as text_f, open(os.path.join(msa_speed_path, 'utt2spk'), 'w') as utt2spk:
     for wave in msa_speed:
-        wav_scp.write(msa_speed[0] + ' ' + msa_speed[1] + '\n')
-        text_f.write(msa_speed[0] + ' ' + msa_speed[2] + '\n')
-        utt2spk.write(msa_speed[0] + ' ' + msa_speed[0] + '\n')
+        wav_scp.write(wave[0] + ' ' + wave[1] + '\n')
+        text_f.write(wave[0] + ' ' + wave[2] + '\n')
+        utt2spk.write(wave[0] + ' ' + wave[0] + '\n')
 
 
 msa_noise_path = 'data/msa_noise'
@@ -60,7 +60,7 @@ os.makedirs(msa_noise_path, exist_ok=True)
 
 with open(os.path.join(msa_noise_path, 'wav.scp'), 'w') as wav_scp, open(os.path.join(msa_noise_path, 'text'), 'w') as text_f, open(os.path.join(msa_noise_path, 'utt2spk'), 'w') as utt2spk:
     for wave in msa_noise:
-        wav_scp.write(msa_noise[0] + ' ' + msa_noise[1] + '\n')
-        text_f.write(msa_noise[0] + ' ' + msa_noise[2] + '\n')
-        utt2spk.write(msa_noise[0] + ' ' + msa_noise[0] + '\n')
+        wav_scp.write(wave[0] + ' ' + wave[1] + '\n')
+        text_f.write(wave[0] + ' ' + wave[2] + '\n')
+        utt2spk.write(wave[0] + ' ' + wave[0] + '\n')
 
