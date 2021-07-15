@@ -59,6 +59,7 @@ with open(trans_coll_noise, 'r') as f:
 
 
 dev_path = 'data/coll-dev-new'
+os.makedirs(dev_path, exist_ok=True)
 with open(os.path.join(dev_path, 'wav.scp'), 'w') as wav_scp, open(os.path.join(dev_path, 'text'), 'w') as text_f, open(os.path.join(dev_path, 'utt2spk'), 'w') as utt2spk:
     for wave in dev_waves:
         wav_scp.write(wave[0] + ' ' + wave[1] + '\n')
@@ -67,6 +68,7 @@ with open(os.path.join(dev_path, 'wav.scp'), 'w') as wav_scp, open(os.path.join(
 
 
 coll_path = 'data/colloquial'
+os.makedirs(coll_path, exist_ok=True)
 with open(os.path.join(coll_path, 'wav.scp'), 'w') as wav_scp, open(os.path.join(coll_path, 'text'), 'w') as text_f, open(os.path.join(coll_path, 'utt2spk'), 'w') as utt2spk:
     for wave in coll:
         wav_scp.write(wave[0] + ' ' + wave[1] + '\n')
@@ -74,6 +76,7 @@ with open(os.path.join(coll_path, 'wav.scp'), 'w') as wav_scp, open(os.path.join
         utt2spk.write(wave[0] + ' ' + wave[0] + '\n')
 
 coll_speed_path = 'data/colloquial-speed'
+os.makedirs(coll_speed_path, exist_ok=True)
 with open(os.path.join(coll_speed_path, 'wav.scp'), 'w') as wav_scp, open(os.path.join(coll_speed_path, 'text'), 'w') as text_f, open(os.path.join(coll_speed_path, 'utt2spk'), 'w') as utt2spk:
     for wave in coll_speed:
         wav_scp.write(wave[0] + ' ' + wave[1] + '\n')
@@ -81,6 +84,7 @@ with open(os.path.join(coll_speed_path, 'wav.scp'), 'w') as wav_scp, open(os.pat
         utt2spk.write(wave[0] + ' ' + wave[0] + '\n')
 
 coll_noise_path = 'data/colloquial-noise'
+os.makedirs(coll_noise_path, exist_ok=True)
 with open(os.path.join(coll_noise_path, 'wav.scp'), 'w') as wav_scp, open(os.path.join(coll_noise_path, 'text'), 'w') as text_f, open(os.path.join(coll_noise_path, 'utt2spk'), 'w') as utt2spk:
     for wave in coll_noise:
         wav_scp.write(wave[0] + ' ' + wave[1] + '\n')
