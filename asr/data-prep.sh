@@ -2,7 +2,7 @@
 
 sets="coll-dev-10 colloquial colloquial-speed mgb3_adapt_noise mgb3-dev msa_noise coll-dev-new colloquial-noise mgb3_adapt mgb3_adapt_speed msa msa_speed"
 
-for x in ${(z)sets};; do
+for x in ${(z)sets}; do
     spk2utt=data/${x}/spk2utt
     utt2spk=data/${x}/utt2spk
     text=data/${x}/text
