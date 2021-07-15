@@ -7,9 +7,9 @@ for x in $sets; do
     utt2spk=data/${x}/utt2spk
     text=data/${x}/text
     wav_scp=data/${x}/wav.scp
-    sort -o -u $utt2spk $utt2spk
-    sort -o -u $text $text
-    sort -o -u $wav_scp $wav_scp
+    sort -u -o $utt2spk $utt2spk
+    sort -u -o $text $text
+    sort -u -o $wav_scp $wav_scp
     utils/utt2spk_to_spk2utt.pl <$utt2spk >$spk2utt || exit 1
     utils/validate_data_dir.sh --no-feats data/${x} || exit 1
 done
