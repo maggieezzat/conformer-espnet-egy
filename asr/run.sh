@@ -9,6 +9,8 @@ train_set="train"
 valid_set="dev"
 test_sets="test"
 
+#train_set="msa msa_noise msa_speed"
+
 asr_config=conf/tuning/train_asr_conformer7_n_fft512_hop_length256.yaml
 lm_config=conf/tuning/train_lm_transformer2.yaml
 inference_config=conf/decode_asr.yaml
@@ -27,6 +29,7 @@ gpus=4
     --test_sets "${test_sets}" \
     --ngpu $gpus \
     --num_nodes $nodes \
+    --feats_type 'fbank_pitch' \
     --use_lm false
 
 #./asr.sh \
