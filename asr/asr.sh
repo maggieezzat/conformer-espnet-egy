@@ -45,15 +45,15 @@ local_data_opts= # The options given to local/data.sh.
 speed_perturb_factors=  # perturbation factors, e.g. "0.9 1.0 1.1" (separated by space).
 
 # Feature extraction related
-feats_type=raw       # Feature type (raw or fbank_pitch).
+feats_type=fbank_pitch       # Feature type (raw or fbank_pitch).
 audio_format=wav    # Audio format: wav, flac, wav.ark, flac.ark  (only in feats_type=raw).
-fs=16k               # Sampling rate.
-min_wav_duration=0.1 # Minimum duration in second.
-max_wav_duration=20  # Maximum duration in second.
+fs=8k               # Sampling rate.
+min_wav_duration=1 # Minimum duration in second.
+max_wav_duration=12  # Maximum duration in second.
 
 # Tokenization related
 token_type=bpe      # Tokenization type (char or bpe).
-nbpe=30             # The number of BPE vocabulary.
+nbpe=5000             # The number of BPE vocabulary.
 bpemode=unigram     # Mode of BPE (unigram or bpe).
 oov="<unk>"         # Out of vocabulary symbol.
 blank="<blank>"     # CTC blank symbol
